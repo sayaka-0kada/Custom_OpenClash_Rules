@@ -1,4 +1,4 @@
-<h1 align="center">OpenClash 保姆级设置教程<br>&<br>个人自用全分组订阅转换模板</h1>
+<h1 align="center">OpenClash 保姆级设置教程<br>&<br>全分组防泄漏订阅转换模板</h1>
 
 <p align="center">
    <img src="https://img.shields.io/github/stars/Aethersailor/Custom_OpenClash_Rules?style=for-the-badge&logo=github" alt="GitHub stars">
@@ -12,10 +12,16 @@
 手把手嘴对嘴指导你将 OpenClash 设置为效率、安全和便利三者兼顾的完美状态，零基础小白也能轻松看懂。  
 按照本仓库 [Wiki](https://github.com/Aethersailor/Custom_OpenClash_Rules/wiki) 中的教程，搭配本仓库的[订阅模板](https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/main/cfg/Custom_Clash.ini)对 OpenClash 进行设置，仅依靠 OpenClash 自身，无需套娃其他工具，即可实现快速、无污染、无泄漏的 DNS 解析以及完善多样的分流功能，同时配合 Dnsmasq 可实现无第三方插件的广告拦截，并且完美兼容 IPv6。  
 
-欢迎 star ！  
+欢迎 star ！转载请注明出处，感谢！
 
 ## 更新  
-本仓库模板包含的规则均为引用的上游规则碎片，上游规则更新与本仓库模板的更新没有直接关系  
+本仓库模板包含的规则均为引用的上游规则碎片，上游规则更新与本仓库模板的更新没有直接关系，只需根据教程设置每日更新订阅即可每日自动获取最新规则。  
+
+2024.9.7  
+根据 OpenClash v0.46.024-beta 的界面改动，更新部分教程图片。  
+
+2024.8.9  
+更新 Steam 下载 CDN 规则。  
 
 2024.7.28  
 换用新的广告拦截设置方法，现在使用 OpenClash 的开发者选项来实现广告屏蔽功能，大幅提升便利性。  
@@ -41,7 +47,7 @@
 * 国外域名和 IP 使用远端节点服务器的 DNS 进行解析，取得最佳解析结果；  
 * 国内域名返回真实 IP，国外域名返回 Fake-IP；
 * 增加若干冷门域名规则（互动对战平台、猫眼浏览器、蓝点网、EA Desktop 下载 CDN 等），绝无副作用。具体内容详见 Rule\Custom_Direct.list 文件）;  
-* 无需手搓配置，每日定时自动更新上游规则，一次设置即可长期无人值守，无需反复折腾；  
+* 每日定时自动更新上游规则，一次设置即可长期无人值守，无需反复折腾；  
 * 增加更多的节点区域分组（英国、加拿大等）；    
 * 尽力实现海外下载流量强制直连（相关规则完善中）；  
 * 广告屏蔽功能（可选）  
@@ -49,7 +55,7 @@
 ## 使用方法  
 准备好你的订阅链接，然后按照本仓库 [Wiki 中的图文教程](https://github.com/Aethersailor/Custom_OpenClash_Rules/wiki/OpenClash-设置教程)对 OpenClash 进行设置程，教程中已包括了本仓库订阅转换模板的使用方法：  
 https://github.com/Aethersailor/Custom_OpenClash_Rules/wiki/OpenClash-设置教程  
-教程非常详尽，只需按部就班设置即可，有手就行！  
+教程非常详尽，只需按部就班设置即可。全部设置内容均基于 OpenClash 的 luci 设置页面，有手就行！  
 
 此处也提供本仓库订阅模板的单独下载地址：  
 https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/main/cfg/Custom_Clash.ini  
@@ -68,6 +74,8 @@ https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/main/cfg/C
 
 理论上，以上设置可以取得最快、最佳的解析结果，且无污染、无泄露，DNS 完美分流，无需借助其他工具。  
 
+PS：如果在控制面板中为“漏网之鱼”策略组选择了“全球直连”策略，则不能通过防泄露测试。  
+
 ## 关于广告过滤  
 由于放弃了套娃其他工具，且大陆域名绕过了 Clash 内核，因此无法依靠 OpenClash 的规则来完成广告过滤，广告过滤功能只能通过 Dnsmasq 来实现。  
 借助 OpenClash 的“开发者选项”功能，让 OpenClash 每次启动时为 Dnsmasq 拉取相应的广告过滤规则文件，同时利用 OpenClash 启动时会重启 Dnsmasq 的特性使广告过滤规则生效。  
@@ -81,32 +89,20 @@ OpenWrt 的 IPv6 设置教程见本仓库的 Wiki：
 https://github.com/Aethersailor/Custom_OpenClash_Rules/wiki/OpenWrt-IPv6-设置教程  
 
 ## 已知问题  
-目前本仓库订阅模板对 BT 和 PT 流量的处理依托上游规则碎片完成，可能有不足之处，逐渐完善中  
-有其他问题请发 Issue  
+目前本仓库订阅模板对 BT 和 PT 流量的处理依托上游规则碎片完成，可能有不足之处，逐渐完善中。  
+
+## 不能正常工作？  
+本仓库提供的仅仅是订阅转换模板以及 OpenClash 有关的设置教程，且所有设置操作均基于 OpenClash 的图形界面，没有任何超出常规范围的设置和修改，因此不会导致 OpenWrt 以及 OpenClash 工作异常。  
+本人使用的固件是 ImmortalWrt 官方编译版本，主路由 PPPOE 拨号环境，本仓库仅能保证在同样固件同样网络条件的情况下正常工作。  
+旁路由/二级路由相关设置基于本人对 OpenWrt 以及 OpenClash 的理解而形成，理论上不会导致问题，请自己根据实际情况调整。  
+
+OpenClash 设置以及订阅转换模板具有普适性，按照教程设置后如果有异常，请从教程和模板以外的因素自行查找原因。  
+故障原因包括但不限于 OpenClash 自身、Clash 内核自身、订阅转换服务亦或是搭配其他插件、他人编译的固件、OpenWrt 设置错误，以及某些设备内置 DNS 等原因。以上原因均与本仓库内容无关，请自行排查故障，相关 issue 将被直接关闭，不再予以解答。  
 
 ## 控制面板效果截图  
 历史截图，可能和当前版本不一致，仅供示意  
 ![](https://github.com/Aethersailor/Custom_OpenClash_Rules/blob/main/doc/openclash/pics/db2.png)  
-## 机场推荐 
-### SSRDOG  
 
-本人常年使用的一家机场，价格和流量都比较适中，搭配本仓库的订阅模板使用，体验保证拉满。
-
-- 节点覆盖地区全面，全 IEPL 线路不过墙，低延迟稳定流畅。
-- 流媒体和 ChatGPT 全解锁，高峰时期油管 8K 视频秒开无压力。
-- 支持游戏加速和 IPv6 出站。
-- 工单支持简体中文沟通且客服反应迅速。  
-
-注册链接：[SSRDOG 注册](https://dog1.ssrdog111.com/#/register?code=FnSb4oWM)  
-
-本仓库订阅模板的节点地区分类即参考了该机场的节点地区进行分类。  
-
-PS：该机场 Hong Kong 11-15 节点不支持 IPv6 出站，如果需要 IPv6 出站功能，建议在 订阅设置 > 排除节点中排除如下关键词：  
-Traffic、GB、Expire、11、12、13、14、15  
-
-若不使用 IPv6 功能，只需屏蔽如下节点关键词：  
-Traffic、GB、Expire  
-不屏蔽不影响使用，只是会让节点列表看着更整洁一些  
 
 ## 感谢  
 以下排名不分先后  
